@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: Jersey;
+  src: url("../public/Jersey15-Regular.ttf");
+}

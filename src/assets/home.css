@@ -1,0 +1,140 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Jersey;
+  }
+  
+  .noisy.glitch {
+    position: absolute;
+    top: 50%;  
+    left: 50%;
+    transform: translate(-39%, -78%); 
+    width: 80%; 
+    text-align: center; 
+    
+  }
+  li{
+    text-decoration: none;
+    list-style: none;
+  }
+  a{
+    color: brown;
+    display:contents;
+    top: 20px;
+    font-size: 25px;
+  }
+  a:hover{
+    color: aqua;
+  }
+
+  .buttonMoveUp{
+    position: absolute;
+    top: 76.5%;  
+    left: 40.4%;
+    transform: translate(-50%, -100%);
+    width: 10px;
+    height: 10px; 
+    text-align: center; 
+    background-color: transparent;
+/*  border: 2px solid black;*/
+border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .buttonMoveDown{
+    position: absolute;
+    top: 80%;  
+    left: 40.4%;
+    transform: translate(-50%, -100%);
+    width: 10px;
+    height: 10px; 
+    text-align: center; 
+    background-color: transparent;
+  /*  border: 2px solid black;*/
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .listaHome{
+    margin-right: 10%;
+   }
+   .listaHome:hover{
+    color: red;
+   }
+
+   .project-container {
+    max-width: 250px;
+    height: 220px;
+    overflow: auto;
+    padding: 20px;
+    box-shadow: inset 0 0 10px #000000;
+    transform: translateX(80%) translateY(30%);
+    scrollbar-width: thin;
+    scrollbar-color: #5dd88c black;
+  }
+  
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Creates a 2x2 grid */
+    grid-gap: 50px;
+    
+  }
+  
+  .card {
+    background: #252525;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px #000000;
+    border-radius: 5px;
+  }
+  
+  .card img {
+    width: 100%; /* Makes the image fill the card */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 5px; /* Optional: rounds the corners of the images */
+  }
+  
+  
+@keyframes tvOnEffect {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.on {
+  position: absolute;
+  top: 80%;  
+  left: 76.3%;
+  transform: translate(-50%, -100%);
+  width: 20px;
+  height: 20px;
+  text-align: center; 
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  /* Quitar si se desea sin borde */
+  /* border: 2px solid black; */
+}
+
+  @media only screen and (max-width: 35em) {
+    body {
+      background-repeat: no-repeat;
+    }
+    .noisy.glitch {
+      position: absolute;
+      top: 50%;  
+      left: 50%;
+      transform: translate(-40%, -160%); 
+      width: 80%; 
+      text-align: center; 
+      
+    }
+  }
