@@ -2,6 +2,19 @@
     color: black;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     position: relative;
-    margin-top: 48%;
-    margin-right: 24%;
+    margin-top: 10%;
+    margin-right: 0%;
+}
+@media only screen and (max-width: 35em){
+
+    .back{
+        color: black;
+        text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+        position: relative;
+        margin-top: 10%;
+        margin-right: 0%;
+    }
+
+
+
 }

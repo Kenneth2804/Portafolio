@@ -130,11 +130,28 @@ border: none;
     }
     .noisy.glitch {
       position: absolute;
-      top: 50%;  
+      top: 100%;  
       left: 50%;
-      transform: translate(-40%, -160%); 
+      transform: translate(-42%, -160%); 
       width: 80%; 
       text-align: center; 
       
+    }
+    .listaHome{
+      margin-right: 11%;
+     }
+     .listaHome:hover{
+      color: red;
+     }
+     .project-container {
+      max-width: 250px;
+      height: 180px;
+      overflow: auto;
+      padding: 20px;
+      box-shadow: inset 0 0 10px #000000;
+      transform: translateX(53%) translateY(28%);
+      scrollbar-width: thin;
+      scrollbar-color: #5dd88c black;
+    
     }
   }
