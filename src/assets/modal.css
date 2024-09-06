@@ -16,8 +16,8 @@
     padding: 20px;
     background: rgb(60, 1, 1);
     border-radius: 5px;
-    max-height: 100%;   /* limit the height */
-    overflow-y: auto;  /* enable scrolling */
+    max-height: 100%;   
+    overflow-y: auto;  
   }
   .modaltext{
     color: #c1bdbd;

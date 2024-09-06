@@ -56,6 +56,40 @@ border: none;
     cursor: pointer;
   }
 
+  .buttonEnter{
+
+    position: absolute;
+    top: 80%;  
+    left: 40.4%;
+    transform: translate(60%, -200%);
+    width: 10px;
+    height: 10px; 
+    text-align: center; 
+    background-color: transparent;
+   border: 2px solid rgb(161, 36, 36);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+  }
+
+  .buttonBack{
+    position: absolute;
+    top: 80%;  
+    left: 40.4%;
+    transform: translate(-200%, -200%);
+    width: 10px;
+    height: 10px; 
+    text-align: center; 
+    background-color: transparent;
+   border: 2px solid rgb(161, 36, 36);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+  }
+
+  
   .listaHome{
     margin-right: 10%;
    }

@@ -9,7 +9,7 @@ import { useVisibility } from './VisibilityContext';
 function Home() {
   const navigate = useNavigate();
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
-  const { contentVisible, toggleContentVisibility } = useVisibility(); // Corregido aquí
+  const { contentVisible, toggleContentVisibility } = useVisibility(); 
   const options = [
     { name: 'About me', path: '/aboutme' },
     { name: 'Projects', path: '/proyects' },
@@ -30,9 +30,16 @@ function Home() {
     }
   };
 
+  const handleEnterPress = () => {
+    const selectedOption = options[selectedOptionIndex];
+    navigate(selectedOption.path);
+  };
+  const handleBackPress = () => {
+    navigate('/');
+  };
   return (
     <div>
-       <Encender toggleVisibility={toggleContentVisibility} /> {/* Usar la función correcta */}
+       <Encender toggleVisibility={toggleContentVisibility} />
       {contentVisible && (
         <header className="noisy glitch">
           <h1>HOME</h1>
@@ -58,7 +65,7 @@ function Home() {
           </ul>
         </header>
       )}
-      <Buttons moveUp={moveUp} moveDown={moveDown}></Buttons>
+      <Buttons moveUp={moveUp} moveDown={moveDown} onEnterPress={handleEnterPress}  onBackPress={handleBackPress}></Buttons>
     </div>
   );
 }

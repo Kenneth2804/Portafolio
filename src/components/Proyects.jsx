@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Card from './Card';
-import Back from './Back';
 import Modal from './Modal';
+import Buttons from './Buttons';
+import Back from './Back';
 import image1 from "../assets/pics/image1.PNG";
 import image2 from "../assets/pics/image2.png";
 import image3 from "../assets/pics/image3.png";
@@ -33,22 +34,70 @@ function Proyects() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({});
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
+  const [selectedCardIndex, setSelectedCardIndex] = useState(null); 
 
-  const handleImageClick = (data) => {
+  const cardRefs = useRef([]);
+
+  const handleImageClick = (data, index) => {
     setModalContent(data);
     setModalOpen(true);
+    setSelectedCardIndex(index);
+  };
+
+  const moveUp = () => {
+    setSelectedOptionIndex((prevIndex) => {
+      const newIndex = Math.max(0, prevIndex - 1);
+      setSelectedCardIndex(newIndex);
+      if (cardRefs.current[newIndex]) {
+        cardRefs.current[newIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return newIndex;
+    });
+  };
+  
+  const moveDown = () => {
+    setSelectedOptionIndex((prevIndex) => {
+      const newIndex = Math.min(imageData.length - 1, prevIndex + 1);
+      setSelectedCardIndex(newIndex);
+      if (cardRefs.current[newIndex]) {
+        cardRefs.current[newIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return newIndex;
+    });
+  };
+  
+  
+
+  const handleEnterPress = () => {
+    const selectedOption = imageData[selectedOptionIndex];
+    window.open(selectedOption.url, '_blank'); 
+  };
+
+  const handleBackPress = () => {
+    window.location.href = '/';
   };
 
   return (
+    <>
     <div className="project-container">
       <Modal isOpen={modalOpen} content={modalContent} onClose={() => setModalOpen(false)} />
       <div className="cards">
         {imageData.map((data, index) => (
-          <Card key={index} imageUrl={data.src} description={data.description} onClick={() => handleImageClick(data)} />
+         <Card 
+         key={index} 
+         imageUrl={data.src} 
+         description={data.description} 
+         onClick={() => handleImageClick(data, index)} 
+         isSelected={selectedCardIndex === index} 
+         ref={(el) => (cardRefs.current[index] = el)}
+       />
+       
         ))}
       </div>
-      <Back />
     </div>
+      <Buttons moveUp={moveUp} moveDown={moveDown} onEnterPress={handleEnterPress} onBackPress={handleBackPress} />
+        </>
   );
 }
 

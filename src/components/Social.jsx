@@ -5,17 +5,16 @@ import '../assets/home.css';
 import { useVisibility } from './VisibilityContext';
 import Buttons from './Buttons';
 import Encender from './Encender';
-import Back from './Back';
 
 function Social() {
   const navigate = useNavigate();
   const { contentVisible, toggleContentVisibility } = useVisibility();
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0);
   const options = [
-    { name: 'GitHub',  url: 'https://github.com/Kenneth2804' },
-    { name: 'LinkedIn',  url: 'https://www.linkedin.com/in/kenneth-flores-calvillo/' },
-    { name: 'Facebook',  url: 'https://www.facebook.com/profile.php?id=100087748970250' },
-    { name: 'Instagram',  url: 'https://www.instagram.com/kenneth28_89/' },
+    { name: 'GitHub', url: 'https://github.com/Kenneth2804' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/kenneth-flores-calvillo/' },
+    { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=100087748970250' },
+    { name: 'Instagram', url: 'https://www.instagram.com/kenneth28_89/' }
   ];
 
   const moveUp = () => {
@@ -26,9 +25,18 @@ function Social() {
     setSelectedOptionIndex((prevIndex) => Math.min(options.length - 1, prevIndex + 1));
   };
 
+  const handleEnterPress = () => {
+    const selectedOption = options[selectedOptionIndex];
+    window.location.href = selectedOption.url; // Cambia navigate(url) a window.location.href para enlaces externos
+  };
+
+  const handleBackPress = () => {
+    navigate('/');
+  };
+
   const handleKeyDown = (event, url) => {
     if (event.key === 'Enter') {
-      navigate(url);
+      window.location.href = url; // Cambia navigate(url) a window.location.href para enlaces externos
     }
   };
 
@@ -41,7 +49,7 @@ function Social() {
           <ul>
             {options.map((option, index) => (
               <li key={index} className="listaHome">
-                <a 
+                <a
                   href={option.url}
                   onKeyDown={(e) => handleKeyDown(e, option.url)}
                   style={{
@@ -52,15 +60,14 @@ function Social() {
                   }}
                   tabIndex="0"
                 >
-                 {option.name}
+                  {option.name}
                 </a>
               </li>
             ))}
           </ul>
         </header>
       )}
-      <Back></Back>
-      <Buttons moveUp={moveUp} moveDown={moveDown}></Buttons>
+      <Buttons moveUp={moveUp} moveDown={moveDown} onEnterPress={handleEnterPress} onBackPress={handleBackPress} />
     </div>
   );
 }
